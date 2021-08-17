@@ -1,0 +1,170 @@
+/* Color Variables */
+$backgroundColor: #51509b;
+$yellow: #e5af40;
+
+/* Font Size */
+$headingSize: 2rem;
+$pgSize: 0.8rem;
+$btnFontSize: 1rem;
+$priceFontSize: 2.7rem;
+
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Roboto', sans-serif;
+height:100vh;
+background-color: $backgroundColor;
+}
+
+ul {
+list-style: none;
+}
+
+main {
+display: flex;
+justify-content:center;
+align-items: flex-start;
+.container {
+    width: 900px;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 15px 0;
+    grid-template-rows: repeat(3, auto);
+    margin-top:20px;
+    h2 {
+        color:#fff;
+        font-size: $headingSize;
+    }
+        p {
+            color:#fff;
+            font-size: $pgSize;
+            margin-bottom:20px;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            position: relative;
+            .card {
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding: 40px;
+                border-radius:10px;
+                .card-heading {
+                    display: flex;
+                    align-items:center;
+                    i {
+                        font-size: 1.5rem;
+                        color: $yellow;
+                        margin-right:10px
+                    }
+                    h3 {
+                        font-size: 1.5rem;
+                        position: relative;
+                        &::after {
+                            content:"";
+                            position:absolute;
+                            width:100%;
+                            padding: 5px 0;
+                            background-color: $yellow;
+                            bottom:0;
+                            left: 0;
+                            opacity: .3;
+                        }
+                    }
+                }
+                .options {
+                    flex: .8;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    li{
+                        padding: 10px 0;
+                        border-bottom: 1px solid #ccc;
+                        font-size: $pgSize;
+                        line-height: 1.5;
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                    .bold {
+                        font-weight: bold;
+                    }
+                }
+                .price-container {
+                    display:flex;
+                    justify-content:space-between;
+                    align-items: center;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    .price {
+                        font-size: $priceFontSize;
+                        font-weight: bold;
+                        position: relative;
+                        &::before {
+                            content: "\1F4B2";
+                            font-size: 1.2rem;
+                            position: relative;
+                            top: -20px;
+                            left:5px;
+                        }
+                        span {
+                            font-size: .8rem;
+                            font-weight: normal
+                        }
+                    }
+                    button {
+                        padding:15px 20px;
+                        border: 0;
+                        border-radius:5px;
+                        background-color: $yellow;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: $btnFontSize;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .big {
+                height: 450px;
+                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                z-index:2;
+                .other-option {
+                    font-size: $pgSize;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+            }
+            .small {
+                align-self: center;
+                position: relative;
+                right: 10px;
+                width: 350px;
+                height:350px;
+                z-index:1;
+            }
+        }
+    }
+}
+@media (max-width: 799px) {
+    main {
+        .container {
+            width: 500px;
+            .cards-container {
+                .small {
+                    right: 0;
+                    justify-self: center;
+                    margin-top: 20px;
+                    width:100%
+                }
+            }
+        }
+    }   
+}
